@@ -6,6 +6,8 @@ Versionning: https://semver.org/
 Template:
 
 ```
+## [Unreleased]
+
 ## [1.0.0] - 2019-06-20
 ### Added
 - Feature 1
