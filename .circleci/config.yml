@@ -16,9 +16,9 @@ jobs:
       - run: sleep 20
 workflows:
   version: 2
-  test:
+  one_and_two:
     jobs:
       - build
       - build2:
-        requires::
-          - build
+          requires:
+            - build
