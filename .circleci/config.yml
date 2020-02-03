@@ -7,10 +7,12 @@ jobs:
       - checkout
       - run: npm install
   dockerize:
+    docker:
+      - image: circleci/buildpack-deps:stable
     steps:
-      - docker build -t devops .
-      - docker tag devops tomflitterman/projet-devops:0.1.0
-      - docker push tomflitterman/projet-devops:0.1.0
+      - run: docker build -t devops .
+      - run: docker tag devops tomflitterman/projet-devops:0.1.0
+      - run: docker push tomflitterman/projet-devops:0.1.0
 workflows:
   version: 2
   push_to_docker_hub:
