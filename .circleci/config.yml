@@ -5,6 +5,7 @@ jobs:
       - image: circleci/buildpack-deps:stable
     steps:
       - checkout
+      - setup_remote_docker
       - run: docker build -t devops .
       - run: docker tag devops tomflitterman/projet-devops:0.1.0
       - run: docker push tomflitterman/projet-devops:0.1.0
