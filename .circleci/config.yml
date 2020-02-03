@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
@@ -6,3 +6,9 @@ jobs:
     steps:
       - checkout
       - run: echo "A first hello"
+  build2:
+    docker:
+      - image: node:12
+    steps:
+      - checkout
+      - run: echo "hello again"
