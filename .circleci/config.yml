@@ -19,4 +19,6 @@ workflows:
   test:
     jobs:
       - build
-      - build2
+      - build2:
+        requires::
+          - build
