@@ -1,24 +1,21 @@
 version: 2.1
 jobs:
-  build:
+  install_project:
     docker:
       - image: node:12
     steps:
       - checkout
-      - run: echo "A first hello"
-      - run: sleep 25
-  build2:
-    docker:
-      - image: node:12
+      - run: npm install
+  dockerize:
     steps:
-      - checkout
-      - run: echo "hello again"
-      - run: sleep 20
+      - docker build -t devops .
+      - docker tag devops tomflitterman/projet-devops:0.1.0
+      - docker push tomflitterman/projet-devops:0.1.0
 workflows:
   version: 2
-  one_and_two:
+  push_to_docker_hub:
     jobs:
-      - build
-      - build2:
+      - install_project
+      - dockerize:
           requires:
-            - build
+            - install_project
