@@ -1,15 +1,10 @@
 version: 2.1
 jobs:
-  install_project:
-    docker:
-      - image: node:12
-    steps:
-      - checkout
-      - run: npm install
   dockerize:
     docker:
       - image: circleci/buildpack-deps:stable
     steps:
+      - checkout
       - run: docker build -t devops .
       - run: docker tag devops tomflitterman/projet-devops:0.1.0
       - run: docker push tomflitterman/projet-devops:0.1.0
@@ -17,7 +12,4 @@ workflows:
   version: 2
   push_to_docker_hub:
     jobs:
-      - install_project
-      - dockerize:
-          requires:
-            - install_project
+      - dockerize
