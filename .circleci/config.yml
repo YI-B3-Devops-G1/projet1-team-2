@@ -6,9 +6,17 @@ jobs:
     steps:
       - checkout
       - run: echo "A first hello"
+      - run: sleep 25
   build2:
     docker:
       - image: node:12
     steps:
       - checkout
       - run: echo "hello again"
+      - run: sleep 20
+workflows:
+  version: 2
+  test:
+    jobs:
+      - build
+      - build2
