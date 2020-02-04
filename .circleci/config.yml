@@ -35,5 +35,8 @@ workflows:
     jobs:
       - test
       - dockerize:
+          filters:
+            tags:
+              only: /.*/
           requires:
             - test
