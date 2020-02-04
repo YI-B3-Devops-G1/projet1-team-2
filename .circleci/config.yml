@@ -2,13 +2,13 @@ version: 2.1
 jobs:
   dockerize:
     docker:
-      - image: circleci/buildpack-deps:stable
+      - image: circleci/buildpack-deps:stretch
     steps:
       - checkout
       - setup_remote_docker
       - run: docker build -t devops .
       - run: docker tag devops tomflitterman/projet-devops:0.1.0
-      - run: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+      - run: echo "$DOCKER_HUB_PASS" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
       - run: docker push tomflitterman/projet-devops:0.1.0
 workflows:
   version: 2
