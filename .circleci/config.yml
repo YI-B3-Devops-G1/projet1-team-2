@@ -36,6 +36,8 @@ workflows:
       - test
       - dockerize:
           filters:
+            branches:
+              ignore: /.*/
             tags:
               only: /.*/
           requires:
