@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "NODE_ENV=test echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=test mocha test.js",
     "dev": "NODE_ENV=dev nodemon app.js",
     "serve": "node app.js"
   },
@@ -16,6 +16,7 @@
     "redis": "^2.8.0"
   },
   "devDependencies": {
+    "mocha": "^7.0.1",
     "nodemon": "^2.0.2"
   }
 }

@@ -1,5 +1,12 @@
 version: 2.1
 jobs:
+  test:
+    docker:
+      - image: node:12
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run test
   dockerize:
     docker:
       - image: circleci/buildpack-deps:stretch
