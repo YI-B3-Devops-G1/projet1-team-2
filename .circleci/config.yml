@@ -5,18 +5,30 @@ jobs:
       - image: node:12
     steps:
       - checkout
-      - run: npm install
-      - run: npm run test
+      - run:
+          name: Install project dependencies
+          command: npm install
+      - run:
+          name: Run test
+          command: npm run test
   dockerize:
     docker:
       - image: circleci/buildpack-deps:stretch
     steps:
       - checkout
       - setup_remote_docker
-      - run: docker build -t devops .
-      - run: docker tag devops tomflitterman/projet-devops:0.1.0
-      - run: docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
-      - run: docker push tomflitterman/projet-devops:0.1.0
+      - run:
+          name: Build image
+          command: docker build -t devops .
+      - run:
+          name: Tag image
+          command: docker tag devops tomflitterman/projet-devops:0.1.0
+      - run:
+          name: Login to Docker Hub
+          command: docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
+      - run:
+          name: Push image to Docker Hub
+          command: docker push tomflitterman/projet-devops:0.1.0
 
 workflows:
   test_and_push:
