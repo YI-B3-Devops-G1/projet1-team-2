@@ -37,9 +37,9 @@ const startServer = async function() {
     }
 };
 
-//startServer();
+startServer();
 
-// const redisClient = redis.createClient({ host: 'redis' });
+const redisClient = redis.createClient({ host: 'redis' });
 
 
 app.get('/', function(req, res) {

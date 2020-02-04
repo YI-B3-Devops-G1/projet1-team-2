@@ -17,6 +17,9 @@ github_username: yves1997-dieme
 
 ## Dockerhub
 
+link: https://hub.docker.com/repository/docker/tomflitterman/projet-devops
+
+
 ## Changelog
 
 Template:
@@ -48,3 +51,14 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 - MAJOR version when you make incompatible API changes,
 - MINOR version when you add functionality in a backwards compatible manner, and
 - PATCH version when you make backwards compatible bug fixes.
+
+
+## Fichiers
+
+### Dockerfile
+
+Le Dockerfile installer les paquets npm (`npm install`) et exécute le fichier app.js avec le script `serve` de npm.
+
+### app.js
+
+Il s'agit du l'API. Pour utiliser les bases de données, il faudra décommenter les parties de connexion aux bases
