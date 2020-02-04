@@ -33,7 +33,7 @@ jobs:
 workflows:
   test_and_push:
     jobs:
-      - test
+      - test:
           filters:
             tags:
               only: /.*/
