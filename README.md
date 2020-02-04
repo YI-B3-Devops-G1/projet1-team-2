@@ -10,8 +10,8 @@ github_username: tofl
 
 ---
 
-mail: [ton email]  
-github_username: [ton username]
+mail: yvesmichel.dieme@ynov.com   
+github_username: yves1997-dieme
 
 ---
 
