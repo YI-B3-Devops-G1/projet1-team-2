@@ -19,10 +19,9 @@ jobs:
       - run: docker push tomflitterman/projet-devops:0.1.0
 
 workflows:
-  version: 2
   test_and_push:
     jobs:
       - test
       - dockerize:
-        requires:
-          - test
+          requires:
+            - test
