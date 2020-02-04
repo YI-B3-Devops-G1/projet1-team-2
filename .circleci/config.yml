@@ -37,6 +37,8 @@ workflows:
           filters:
             tags:
               only: /.*/
+            branches:
+              only: master
       - dockerize:
           filters:
             branches:
