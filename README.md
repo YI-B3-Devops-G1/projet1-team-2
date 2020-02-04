@@ -61,4 +61,18 @@ Le Dockerfile installer les paquets npm (`npm install`) et exécute le fichier a
 
 ### app.js
 
-Il s'agit du l'API. Pour utiliser les bases de données, il faudra décommenter les parties de connexion aux bases
+Il s'agit du l'API, lancée en développement avec nodemon.
+
+### test.js
+
+Il s'agit du fichier de tests lancé avec `npm run test`. Le test fonctionnera toujours.
+
+### .circleci/config.yml
+
+Ce fichier définit deux jobs:
+
+- test : lance les tests avec `npm run test` après avoir installé les dépendences.
+- dockerize : créé une nouvelle image, et l'envoit sur Docker Hub.
+
+Dans le cas d'un git push, le job `test` sera exécuté.  
+Dans le cas d'un nouveau tag, le test sera lancé puis le projet sera dockerisé. La nouvelle image sera hébergée dans Docker Hub. Pour se connecter au compte, le fichier `config.yml` utilise les identifiants renseignés dans les variables d'environment de CircleCI. Aussi, grâce à la variable `CIRCLE_TAG`, nous récupérons le tag de git et l'utilisons pour tagger la nouvelle image.
