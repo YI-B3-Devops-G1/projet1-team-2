@@ -22,7 +22,7 @@ jobs:
           command: docker build -t devops .
       - run:
           name: Tag image
-          command: docker tag devops tomflitterman/projet-devops:0.1.0
+          command: docker tag devops tomflitterman/projet-devops:0.2.0
       - run:
           name: Login to Docker Hub
           command: docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
